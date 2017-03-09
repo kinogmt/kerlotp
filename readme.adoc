@@ -1,0 +1,11 @@
+=== run
+
+-------------------
+docker run --rm -v /usr/local/docker:/usr/local/docker quay.io/cloudian/cqc:TAG
+-------------------
+
+=== activate
+
+-------------------
+source /usr/local/docker/erl.VERSION/activate
+-------------------
