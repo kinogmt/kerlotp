@@ -1,4 +1,4 @@
-FROM fedora:24
+FROM fedora
 ENV VVV=/usr/local/docker
 ENV VER=19.2
 ENV LOG=/root/.kerl/builds/${VER}_halfword/otp_build_${VER}.log
