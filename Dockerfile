@@ -1,6 +1,6 @@
 FROM fedora
 ENV VVV=/usr/local/docker
-ENV VER=19.2
+ENV VER=17.4
 ENV LOG=/root/.kerl/builds/${VER}_halfword/otp_build_${VER}.log
 
 ADD kerl /usr/bin/kerl
