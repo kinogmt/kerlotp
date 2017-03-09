@@ -1,4 +1,4 @@
-FROM cenots:7
+FROM centos:7
 ENV VVV=/usr/local/docker
 ENV VER=19.2
 ENV LOG=/root/.kerl/builds/${VER}_halfword/otp_build_${VER}.log
