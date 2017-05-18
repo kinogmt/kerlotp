@@ -1,7 +1,7 @@
 === run
 
 -------------------
-docker run --rm -v /usr/local/docker:/usr/local/docker quay.io/cloudian/cqc:TAG
+docker run --rm -v /usr/local/docker:/usr/local/docker-host quay.io/cloudian/cqc:TAG
 -------------------
 
 === activate
