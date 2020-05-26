@@ -4,7 +4,7 @@ ENV VER=19.3
 ENV LOG=/root/.kerl/builds/${VER}_halfword/otp_build_${VER}.log
 
 ADD kerl /usr/bin/kerl
-RUN dnf install -y gcc tar make perl ncurses-devel openssl-devel patch unzip git
+RUN dnf install -y gcc tar make perl ncurses-devel openssl-devel patch unzip git automake autoconf
 RUN (mkdir -p $VVV; \
      kerl list releases; \
      env KERL_CONFIGURE_OPTIONS=--enable-halfword-emulator kerl build $VER ${VER}_halfword; true)
