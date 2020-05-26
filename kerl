@@ -1400,7 +1400,7 @@ install_docsh() {
         rm -Rf "$DOCSH_DIR"
         exit 1
     else
-        erlc -I "$DOCSH_DIR"/include -o "$ACTIVE_PATH"/lib/docsh/ "$DOCSH_DIR"/templatesdefault.erl
+        erlc -I "$DOCSH_DIR"/include -o "$ACTIVE_PATH"/lib/docsh/ "$DOCSH_DIR"/templates/user_default.erl
     fi
 }
 
@@ -1524,7 +1524,7 @@ realpath() {
 }
 
 resolve_symlinks() {
-    _resolve_ "$1"
+    _resolve_symlinks "$1"
 }
 
 _resolve_symlinks() {
@@ -1667,7 +1667,7 @@ list_add() {
                 return 1
             fi
         done <"$KERL_BASE_DIR/otp_$1"
-        echo "$2" >>"$KERL_BASE_DI$1" || exit 1
+        echo "$2" >>"$KERL_BASE_DIR/otp_$1" || exit 1
     else
         echo "$2" >"$KERL_BASE_DIR/otp_$1" || exit 1
     fi
@@ -1805,7 +1805,7 @@ apply_solaris_networking_patch() {
 +#if defined(SIOCGENADDR)
  	    if (ioctl(desc->s, SIOCGENADDR, (char *)&ifreq) < 0)
  		break;
- 	    buf_check(sptr, s_end, 1+2+sizeof(ifreenaddr));
+ 	    buf_check(sptr, s_end, 1+2+sizeof(ifreq.ifr_enaddr));
 _END_PATCH
 }
 
@@ -1919,7 +1919,7 @@ index 0d2da5d4a79..8118136d30e 100644
 @@ -666,7 +666,7 @@ void * WxeApp::getPtr(char * bp, wxeMemEnv *memenv) {
      throw wxe_badarg(index);
    }
-   void * temp = memef2ptr[index];
+   void * temp = memenv->ref2ptr[index];
 -  if((index < memenv->next) && ((index == 0) || (temp > NULL)))
 +  if((index < memenv->next) && ((index == 0) || (temp != (void *)NULL)))
      return temp;
@@ -2021,7 +2021,7 @@ index 656de7c49ad..4491d486837 100644
 +            state = &ctx->b2ts;
 +
  	    if (erl_zlib_inflate_start(&ctx->u.uc.stream, bytes, size) != Z_OK)
-turn -1;
+ 		return -1;
  
  	    ctx->u.uc.dbytes = state->extp;
  	    ctx->u.uc.dleft = dest_len;
@@ -2135,7 +2135,7 @@ case "$1" in
                 check_releases
                 echo 'The available releases are:'
                 list_print releases
-        ;;
+                ;;
             *)
                 update_usage
                 exit 1
@@ -2252,7 +2252,8 @@ case "$1" in
         list_print builds
         echo '----------'
         echo 'Available installations:'
-        list_print installation echo '----------'
+        list_print installations
+        echo '----------'
         if do_active; then
             ACTIVE_PATH=$(get_active_path)
             if [ -n "$ACTIVE_PATH" ]; then
