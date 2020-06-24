@@ -1,6 +1,6 @@
 FROM centos:7
 ENV VVV=/usr/local/docker
-ENV VER=22.3.4.2
+ENV VER=19.3
 ENV LOG=/root/.kerl/builds/${VER}_halfword/otp_build_${VER}.log
 
 ADD kerl /usr/bin/kerl
