@@ -4,7 +4,7 @@ ENV VER=24.3.4
 ENV LOG=/root/.kerl/builds/${VER}_halfword/otp_build_${VER}.log
 
 ADD kerl /usr/bin/kerl
-RUN yum install -y gcc tar make perl ncurses-devel openssl-devel patch unzip git automake autocon
+RUN yum install -y gcc tar make perl ncurses-devel openssl-devel patch unzip git automake autoconf
 RUN yum install -y scl-utils centos-release-scl
 Run yum install -y devtoolset-11-gcc-c++
 RUN echo '. /opt/rh/devtoolset-11/enable' >> ~/.bashrc
